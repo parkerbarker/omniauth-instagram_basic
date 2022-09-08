@@ -1,8 +1,6 @@
-# Omniauth::InstagramBasic
+# OmniAuth::InstagramBasic
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/omniauth/instagram_basic`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+OmniAuth staregy for [Instagram Basic Display Api](https://developers.facebook.com/docs/instagram-basic-display-api). For issues please ping me on Twitter @cameronbarker.
 
 ## Installation
 
@@ -22,7 +20,38 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :instagram_display, ENV['INSTAGRAM_CLIENT_ID'], ENV['INSTAGRAM_CLIENT_SECRET'], scope:'user_profile,user_media'
+end
+```
+
+```
+{
+    "provider"=>"instagram_basic",
+    "uid"=>17841400623220074,
+    "info"=> {
+        "id"=>"5375921395840366", 
+        "account_type"=>"PERSONAL", 
+        "media_count"=>994, 
+        "username"=>"parkerbarkers"
+    },
+    "credentials"=> {
+        "token"=> "IGQVJYZA29lbGVTMjdvMTZAnS09jYnhWN0F1NkdVV2x5aGgtU2U1SUFLMHBpWVpkd2Q4eDlORGx1bnpjbUhGaklkX293RDEtY3IydmI0c0pUQU9vT2FMMWkzeEV5cURTdmxZAV0d5LUlp",
+        "expires"=> true,
+        "short_lived_token"=> "IGQVJVQXBZAU1ltY0tEckUxSWlURjJzc0NGOFFKejBsaHZA3YmpuSWVBNTNMSUtxYTJIR0NSUFEyaTlQRHJ3SUJqQ2ZAjRHlFQURCMEs3UWFrRkFOWnRkd0N3bmNRQWFVSllTZAExSM2poekFZALVVtRVc4Q3JnNHJRMnpHMWZAs",
+        "expires_at"=> 5181752
+   },
+    "extra"=> {
+        "raw_info" =>
+            { "id"=> "5175921395840366", 
+            "account_type"=> "PERSONAL", 
+            "media_count"=> 994, 
+            "username"=> "parkerbarkers"}
+        }
+    }
+}
+```
 
 ## Development
 
@@ -32,7 +61,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/omniauth-instagram_basic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/omniauth-instagram_basic/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/cameronbarker/omniauth-instagram_basic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/cameronbarker/omniauth-instagram_basic/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -40,4 +69,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Omniauth::InstagramBasic project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/omniauth-instagram_basic/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Omniauth::InstagramBasic project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/cameronbarker/omniauth-instagram_basic/blob/main/CODE_OF_CONDUCT.md).
