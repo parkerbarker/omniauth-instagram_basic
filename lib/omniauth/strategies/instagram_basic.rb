@@ -11,7 +11,7 @@ module OmniAuth
       option :token_options, TOKEN_OPTIONS
       option :name, 'instagram_basic'
 
-      uid { access_token.response.parsed["user_id"] }
+      uid { access_token.to_hash["user_id"] }
       extra { { raw_info: raw_info } }
       info { info_generator }
       credentials { credentials_generator }
