@@ -7,7 +7,7 @@ module OmniAuth
       TOKEN_PATH = 'oauth/access_token'.freeze
       TOKEN_OPTIONS = ["client_id", "client_secret"].freeze
 
-      option :client_options, site: SITE_URL, token_url: TOKEN_PATH
+      option :client_options, site: SITE_URL, token_url: TOKEN_PATH, auth_scheme: :request_body
       option :token_options, TOKEN_OPTIONS
       option :name, 'instagram_basic'
 
@@ -37,7 +37,7 @@ module OmniAuth
         url = "https://graph.instagram.com/me? \
                 fields=id,account_type,media_count,username \
                 &access_token=#{access_token.token}"
-        
+
         @raw_info ||= access_token.get(url).parsed || {}
       end
 
